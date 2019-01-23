@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Subscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="!scanningCompleted">
+    <ion-input type="text" [(ngModel)]="barCodeText" placeholder="Enter Code"></ion-input>
+    <ion-button (click)="scanCode()" expand="full" color="secondary" shape="round">Scan code</ion-button>
+    <!-- <p>{{scannedCode | json }}</p> -->
+    <!-- <p>{{subscriptionDetails | json}}</p> -->
+    <p style="color:red">{{errorMessage}}</p>
+  </ion-list>
+  <!-- <p>{{subscriptionDetails | json}}</p> -->
+  <!-- <div *ngIf="personalSubscriptions | async; let personalSubscriptions; else loading"> -->
+  <!-- <div>
+    <ul>
+      <li *ngFor="let item of personalSubscriptions">
+         {{ item | json }}
+      </li>
+    </ul> -->
+    <!-- <div *ngIf="items.length === 0">No results, try clearing filters</div> -->
+    <!-- <div>No results, try clearing filters</div> -->
+  <!-- </div> -->
+
+  <ion-list *ngFor="let item of personalSubscriptions">
+    <!-- <ion-item *ngFor="let item of personalSubscriptions"> -->
+      <!-- <ion-card [color]="item.IsActive ? 'primary' : 'danger'" > -->
+          <ion-card mode="ios" style="box-shadow: 10px 10px 5px 5px whitesmoke;">
+        <ion-card-header>
+          <ion-card-subtitle>{{ item.Name }}</ion-card-subtitle>
+          <ion-card-title>Expire After : {{ item.Days }} </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+        
+          <!-- <ion-datetime isplay-format="DD/MM/YYYY" name="StartDate" [(ngModel)]="item.StartDate"></ion-datetime> -->
+          <!-- <ion-item no-lines item-end > -->
+          
+        
+            <ion-grid>
+                <ion-row>
+                  <ion-col>
+                     
+                  </ion-col>
+                  <ion-col>
+                      Used Code : {{ item.Code }}
+                  </ion-col>
+                </ion-row>
+                </ion-grid>
+          
+        </ion-card-content>
+      </ion-card>
+    <!-- </ion-item> -->
+  </ion-list>
+
+  <ion-list *ngIf="scanningCompleted">
+    <form>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Business Name</ion-label>
+          <ion-input [(ngModel)]="business.BusinessName" name="BusinessName" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Category</ion-label>
+          <ion-input [(ngModel)]="business.Category" name="Category" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Sub Category</ion-label>
+          <ion-input [(ngModel)]="business.SubCategory" name="SubCategory" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Line 1</ion-label>
+          <ion-input [(ngModel)]="business.Address.Line1" name="Line1" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Line 2</ion-label>
+          <ion-input [(ngModel)]="business.Address.Line2" name="Line2" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Line 3</ion-label>
+          <ion-input [(ngModel)]="business.Address.Line3" name="Line3" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Pincode</ion-label>
+          <ion-input [(ngModel)]="business.Address.Pincode" name="Pincode" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="getLocation()">Locaion</ion-button>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="register()">Register</ion-button>
+    </form>
+  </ion-list>
+</ion-content>

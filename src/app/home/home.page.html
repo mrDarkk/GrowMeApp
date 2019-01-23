@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start" color="light">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Business Collection
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+ 
+  
+  <ion-content padding>
+      <label>Color Entered: {{color}}</label>
+    <!-- <h3>Progress</h3>
+    <p>{{progressStatus}}</p>
+    <h3>GrowMe</h3>
+    <p> {{status}}</p> -->
+    <!-- <div>
+      <ul>
+        <li *ngFor="let business of businessCollection">
+          {{business | json}}
+        </li>
+      </ul>
+  
+    </div> -->
+  <!-- <h3>Business Collection</h3> -->
+    <ion-card *ngFor="let business of businessCollection" mode="ios" style="box-shadow: 10px 10px 5px 5px whitesmoke;">
+    
+      <ion-card-content >
+          <!-- {{business | json}} -->
+          
+          
+          <b class="label">Business Name</b> : {{business.BusinessName}}<br>
+          <b class="label">Category</b> :  {{business.Category}}<br>
+          <b class="label">Sub Category</b> :  {{business.SubCategory}}<br>
+          <b class="label">Address</b> :  {{business.Address.Line1 + " " + business.Address.Line2 + " " + business.Address.Line3}} <br>
+          <b class="label">Pincode</b>: {{ business.Address.Pincode }}<br>
+          
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

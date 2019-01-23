@@ -1,0 +1,7 @@
+{
+  "name": "GrowMe",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

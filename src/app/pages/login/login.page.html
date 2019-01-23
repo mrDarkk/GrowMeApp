@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form id="register">
+     <!-- <div *ngIf="angularFireAuth.user | async as user; else showLogin">
+      <h1>Hello {{ user.displayName }}!</h1>
+      <button (click)="logout()">Logout</button>
+    </div> -->
+
+   
+<ion-card mode="ios" style="box-shadow: 10px 10px 5px 5px whitesmoke;">
+    
+    <ion-card-content >
+      <ion-list *ngIf="loginMethod=='email'">
+        <ion-item>
+          <ion-label position="floating" color="secondary">Email</ion-label>
+          <ion-input [(ngModel)]="user.Email" name="Email" type="email" clear-input required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating" color="secondary">Password</ion-label>
+          <ion-input [(ngModel)]="user.Password" name="Password" type="Password" clear-input required></ion-input>
+        </ion-item>
+     <ion-item >
+        <p>Forget Password? </p>
+     </ion-item>
+     
+        
+          <ion-button (click)="login()" padding="true" color="secondary" expand="full" shape="round"> Login </ion-button>
+      </ion-list>
+
+
+      <ion-list *ngIf="loginMethod=='phone'">
+        <ion-item>
+          <ion-label position="floating" color="secondary">Phone Number</ion-label>
+          <ion-input [(ngModel)]="user.PhoneNumber" name="PhoneNumber" type="text" clear-input required></ion-input>
+        </ion-item>
+        <ion-item *ngIf="confirmationResult!=null">
+          <ion-label position="floating">Verification Code</ion-label>
+          <ion-input [(ngModel)]="verificationCode" name="Password" type="Password" clear-input required></ion-input>
+        </ion-item>
+        <div id="recaptcha-container"></div>
+        <ion-button *ngIf="confirmationResult==null" (click)="sendOTP()" padding="true"  expand="full" shape="round" color="secondary">Send OTP</ion-button>
+        <ion-button *ngIf="confirmationResult!=null" (click)="verifyNumber()"  padding="true"  expand="full" color="secondary" shape="round">Verify Code</ion-button>
+        <ion-button *ngIf="confirmationResult!=null" (click)="resendOTP()"  padding="true" expand="full" color="secondary" shape="round">Resend OTP</ion-button>
+      </ion-list>
+    
+    </ion-card-content>
+  </ion-card>
+
+  
+    
+
+
+    
+  <ion-grid>
+    <ion-row>
+    <ion-col ></ion-col>            
+    <ion-col > <ion-button padding="true"  shape="round"  expand="full" fill="outline" color="dark" disabled>
+     OR 
+    </ion-button> </ion-col>    
+    <ion-col ></ion-col>             
+    </ion-row>
+    </ion-grid>
+
+
+   
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+          
+          <ion-button (click)="loginWithGoogle()" color="danger" padding="true" shape="round" expand="full" fill="outline">
+            <ion-icon ios="logo-google" md="logo-google"></ion-icon>
+          </ion-button>
+          </ion-col>
+         
+          <ion-col>
+         
+          <ion-button (click)="loginMethod='phone'" *ngIf="loginMethod!='phone'" padding="true"  shape="round"  expand="full" fill="outline" color="tertiary">
+            <ion-icon ios="ios-call" md="md-call"></ion-icon>
+            
+          </ion-button>
+
+          <ion-button (click)="loginMethod='email'" *ngIf="loginMethod!='email'" padding="true" expand="full"  fill="outline"  shape="round" color="tertiary">
+            <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
+          </ion-button>
+          
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+
+   
+     
+    
+    <!-- <p>Error {{error}}</p> -->
+  </form>
+</ion-content>
+

@@ -1,0 +1,10 @@
+service cloud.firestore {
+  function signedInOrPublic() {
+      return request.auth.token.Roles.contains('a') != null || resource.data.visibility == 'public';
+    }
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write;
+    }
+  }
+}

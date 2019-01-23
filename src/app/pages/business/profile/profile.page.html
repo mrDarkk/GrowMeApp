@@ -1,0 +1,90 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title> Business Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+     <!-- <div>
+      <ul>
+        <li *ngFor="let business of businessCollection">
+         
+          {{business.BusinessName}}
+        </li>
+      </ul>
+  
+    </div>  -->
+   
+    <ion-card mode="ios" style="box-shadow: 1px 1px 1px 15px whitesmoke;" >
+       
+      
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="5">
+                      
+                    </ion-col>
+                    <ion-col>
+                        <ion-avatar start="center" >
+                            <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col size="5">
+                     
+                    </ion-col>
+                  </ion-row>
+            
+                  </ion-grid>
+
+                      <!-- <ion-item>
+                        <ion-label position="floating">Business Name</ion-label>
+                        <ion-input [(ngModel)]="business.BusinessName" name="BusinessName" type="text" value="{{business.BusinessName}}" clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Category</ion-label>
+                       <ion-input [(ngModel)]="business.Category" name="Category" value="{{business.Category}}" type="text" clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Sub Category</ion-label>
+                        <ion-input [(ngModel)]="business.SubCategory" name="SubCategory"  value="{{business.SubCategory}}" type="text" clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Line 1</ion-label>
+                        <ion-input [(ngModel)]="business.Address.Line1" name="Line1" value="{{business.Address.Line1}}" type="text"  clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Line 2</ion-label>
+                        <ion-input [(ngModel)]="business.Address.Line2" value="{{business.Address.Line2}}"  name="Line2" type="text" clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Line 3</ion-label>
+                        <ion-input  [(ngModel)]="business.Address.Line3" value="{{business.Address.Line3}}" name="Line3" type="text" clear-input required></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Pincode</ion-label>
+                        <ion-input  [(ngModel)]="business.Address.Pincode" value="{{business.Address.Pincode}}" name="Pincode" type="text" clear-input required></ion-input>
+                      </ion-item>  -->
+                     <!-- <ion-item>
+                        <ion-label position="floating">Pincode</ion-label>
+                        <ion-input [(ngModel)]="business.Address.Pincode" name="Pincode" type="text" clear-input required></ion-input>
+                      </ion-item>  -->
+                     
+                        <ion-button (click)="getLocation()" padding="true"  expand="full" shape="round" color="secondary">Locaion</ion-button>
+                     
+              
+                
+                      
+                        <ion-button  (click)="update()" padding="true"  expand="full" shape="round" color="secondary">Update Data</ion-button>
+                      
+                       <ion-item>{{message}}</ion-item>
+                   
+                
+        </ion-card-content>
+      </ion-card>
+  
+   
+        
+  </ion-content>

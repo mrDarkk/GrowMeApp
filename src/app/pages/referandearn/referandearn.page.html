@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+    <ion-title>Refer and Earn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-card color="tertiary" mode="ios"> -->
+       
+    <ion-card mode="ios" style="box-shadow: 10px 10px 5px 5px whitesmoke;">
+        <ion-card-header>
+           
+            <ion-card-title color="secondary">Refer and Earn</ion-card-title>
+          </ion-card-header>
+       
+          
+  
+      
+        <!-- <img src="img/advance-card-bttf.png"> -->
+      
+        <ion-card-content>
+          <p #color>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.
+            <br> Share Code : xFSns20.
+          </p>
+
+          <ion-grid>
+              <ion-row>
+                <ion-col>
+                 
+                </ion-col>
+               
+                <ion-col>
+                    <ion-button (click)="goTo(color.value)" shape="round" fill="outline" color="secondary">Share</ion-button>
+                </ion-col>
+              </ion-row>
+              </ion-grid>
+        </ion-card-content>
+      
+        
+      
+      </ion-card>
+    </ion-content>
